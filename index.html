@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Desafío Cervecero - Arcade</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <div class="container-fluid">
+            <div class="row justify-content-center text-center mb-4">
+                <div class="col-12">
+                    <img src="interfaz_michelob-02.png" alt="Michelob Ultra" class="main-logo mb-2">
+                    <div id="timer-display" class="display-1 fw-bold text-danger">10s</div>
+                    <p id="instruction-text" class="h4 text-warning">Presiona 2 VECES para comenzar</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col-12 col-md-6 d-flex flex-column align-items-center mb-4 mb-md-0">
+                    <h2 id="player-name" class="text-white display-6">JUGADOR 1</h2>
+                    <span class="badge bg-success fs-5 mb-3">Doble SALTO para iniciar</span>
+                    
+                    <div class="glass-wrapper">
+                        <div class="beer-mask">
+                            <div id="bar-p1" class="beer-liquid">
+                                <div class="foam"></div>
+                            </div>
+                        </div>
+                        <img src="vaso.png" alt="Vaso Michelob" class="glass-image">
+                    </div>
+                    
+                    <div id="score-p1" class="display-4 fw-bold text-white">0%</div>
+                </div>
+
+                <div class="col-12 col-md-4" id="leaderboard-section">
+                    <div class="leaderboard-card p-4">
+                        <h3 class="text-center text-white fw-bold mb-3 shadow-text">🏆 TOP 5 CHELEROS</h3>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover text-center align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th>Jugador</th>
+                                        <th>Puntaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leaderboard-body">
+                                    <tr>
+                                        <td colspan="3" class="text-muted">Aún no hay puntajes...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sweetalert2.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

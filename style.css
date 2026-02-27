@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'Cinzel';
+    src: url('Cinzel-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    width: 100vw; height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Arial Black', sans-serif;
+    background: #1a1a1a;
+}
+
+.game-wrapper {
+    width: 100%; min-height: 100vh;
+    display: flex;
+    align-items: center; justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('back.png');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    padding: 20px 0;
+}
+
+.shadow-text { text-shadow: 3px 3px 10px rgba(0,0,0,0.8); }
+/* --- ESTILO DEL LOGO PRINCIPAL --- */
+.main-logo {
+    max-width: 90%;       /* Asegura que no se salga de la pantalla en celulares */
+    max-height: 120px;    /* Limita la altura para no robarle espacio al juego */
+    object-fit: contain;
+    filter: drop-shadow(3px 3px 10px rgba(0,0,0,0.8)); /* Mantiene la sombra que tenía el texto */
+}
+
+/* --- NUEVO ESTILO DEL VASO --- */
+.glass-wrapper {
+    position: relative;
+    width: 200px; /* Reducido un poco para que quepa bien en pantalla con la tabla */
+    height: 433px; /* Mantiene la misma proporción que tu 300x650 original */
+    display: flex;
+    justify-content: center;
+}
+
+.glass-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    z-index: 10; 
+    pointer-events: none; 
+}
+
+.beer-mask {
+    position: absolute;
+    bottom: 12%; 
+    width: 65%; 
+    height: 75%; 
+    z-index: 5; 
+    clip-path: polygon(5% 0%, 95% 0%, 82% 100%, 18% 100%);
+    border-radius: 0 0 10px 10px;
+}
+
+.beer-liquid {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 0%; 
+    background: linear-gradient(to right, #dca01b, #fce17a, #dca01b);
+    /* Modificado: 0.05s para que suba a golpecitos con la barra espaciadora */
+    transition: height 0.05s ease-out; 
+}
+
+.foam {
+    position: absolute;
+    top: -5px; /* Sube la espuma un poco por encima de la línea del líquido */
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 -5px 10px rgba(255, 255, 255, 0.5);
+    border-radius: 50% 50% 0 0;
+    opacity: 0; /* JS la mostrará cuando empiece a llenarse */
+    transition: opacity 0.2s ease;
+}
+
+/* --- ESTILOS DE LA TABLA --- */
+.leaderboard-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #fbb03b;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(251, 176, 59, 0.3);
+}
+
+.table { margin-bottom: 0; --bs-table-bg: transparent; }
+.table-hover tbody tr:hover { background-color: rgba(251, 176, 59, 0.2) !important; }
+
+@media (max-width: 768px) { 
+    .glass-wrapper { transform: scale(0.8); } 
+    body, html { overflow-y: auto; }
+}
